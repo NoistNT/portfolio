@@ -1,6 +1,6 @@
 ---
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import Badge from '@/components/ui/Badge.astro'
+import Button from '@/components/ui/Button.astro'
 import { Mail, MoveRight } from 'lucide-react'
 ---
 
@@ -25,10 +25,10 @@ import { Mail, MoveRight } from 'lucide-react'
           </p>
         </div>
         <div class="flex flex-row gap-4">
-          <Button size="lg" className="gap-4" variant="outline">
+          <Button size="lg" class="gap-4" variant="outline">
             Contact Me <Mail className="h-4 w-4" />
           </Button>
-          <Button size="lg" className="gap-4">
+          <Button size="lg" class="gap-4">
             View Projects <MoveRight className="h-4 w-4" />
           </Button>
         </div>

@@ -1,8 +1,8 @@
 ---
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from './ui/label'
+import Button from '@/components/ui/Button.astro'
+import Input from '@/components/ui/Input.astro'
+import Label from '@/components/ui/Label.astro'
+import Textarea from '@/components/ui/Textarea.astro'
 ---
 
 <section id="contact" class="py-20">
@@ -14,8 +14,8 @@ import { Label } from './ui/label'
       <form class="space-y-6">
         <div class="space-y-2">
           <Label
-            htmlFor="name"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+            for="name"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
           >
             Name
           </Label>
@@ -25,13 +25,13 @@ import { Label } from './ui/label'
             name="name"
             required
             placeholder="John Doe"
-            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+            class="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
           />
         </div>
         <div class="space-y-2">
           <Label
-            htmlFor="email"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+            for="email"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
           >
             Email
           </Label>
@@ -41,13 +41,13 @@ import { Label } from './ui/label'
             name="email"
             required
             placeholder="john.doe@example.com"
-            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+            class="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
           />
         </div>
         <div class="space-y-2">
           <Label
-            htmlFor="message"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+            for="message"
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
           >
             Message
           </Label>
@@ -56,12 +56,10 @@ import { Label } from './ui/label'
             name="message"
             required
             placeholder="Hello, I'm interested in working with you."
-            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+            class="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
           />
         </div>
-        <Button
-          type="submit"
-          className="w-full bg-primary text-primary-foreground"
+        <Button type="submit" class="w-full bg-primary text-primary-foreground"
           >Send Message</Button
         >
       </form>
