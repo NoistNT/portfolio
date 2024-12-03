@@ -1,0 +1,74 @@
+---
+import { Button } from '@/components/ui/button'
+import { Badge } from './ui/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from './ui/card'
+
+const projects = [
+  {
+    title: 'Project 1',
+    description:
+      'A full-stack web application built with React, Node.js, and MongoDB',
+    image: '/project1.jpg',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    link: '#',
+  },
+  {
+    title: 'Project 2',
+    description: 'Real-time chat application using WebSocket and Express',
+    image: '/project2.jpg',
+    tags: ['WebSocket', 'Express', 'React'],
+    link: '#',
+  },
+  {
+    title: 'Project 3',
+    description: 'E-commerce platform with Next.js and Stripe integration',
+    image: '/project3.jpg',
+    tags: ['Next.js', 'Stripe', 'TailwindCSS'],
+    link: '#',
+  },
+]
+---
+
+<section id="projects" class="py-20">
+  <div class="container px-4 mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
+      Featured Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map(({ description, image, link, tags, title }) => (
+          <Card>
+            <img
+              src={image}
+              alt={title}
+              class="w-full h-48 object-cover rounded-t-lg"
+            />
+            <CardHeader>
+              <CardTitle>{title}</CardTitle>
+              <CardDescription>{description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div class="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <Badge variant="outline">{tag}</Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button variant="link" className="ml-auto">
+                <a href={link}>View Project →</a>
+              </Button>
+            </CardFooter>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

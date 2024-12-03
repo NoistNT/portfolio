@@ -1,0 +1,70 @@
+---
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from './ui/label'
+---
+
+<section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-foreground mb-12">
+      Contact Me
+    </h2>
+    <div class="max-w-2xl mx-auto">
+      <form class="space-y-6">
+        <div class="space-y-2">
+          <Label
+            htmlFor="name"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+          >
+            Name
+          </Label>
+          <Input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="John Doe"
+            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+          />
+        </div>
+        <div class="space-y-2">
+          <Label
+            htmlFor="email"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+          >
+            Email
+          </Label>
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="john.doe@example.com"
+            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+          />
+        </div>
+        <div class="space-y-2">
+          <Label
+            htmlFor="message"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
+          >
+            Message
+          </Label>
+          <Textarea
+            id="message"
+            name="message"
+            required
+            placeholder="Hello, I'm interested in working with you."
+            className="w-full border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring"
+          />
+        </div>
+        <Button
+          type="submit"
+          className="w-full bg-primary text-primary-foreground"
+          >Send Message</Button
+        >
+      </form>
+    </div>
+  </div>
+</section>
