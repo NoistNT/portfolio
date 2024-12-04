@@ -1,21 +1,21 @@
 ---
+import AstroLogo from '@/assets/astro.svg'
+import GitHubLogo from '@/assets/github.svg'
+import LinkedInLogo from '@/assets/linkedin.svg'
+import TailwindCSSLogo from '@/assets/tailwindcss.svg'
 import Button from '@/components/ui/Button.astro'
+import { Image } from 'astro:assets'
 
 const socialLinks = [
   {
     name: 'GitHub',
-    url: 'https://github.com/yourusername',
-    icon: 'github',
+    url: 'https://github.com/noistnt',
+    icon: GitHubLogo,
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
-    icon: 'linkedin',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/yourusername',
-    icon: 'twitter',
+    url: 'https://linkedin.com/in/arielpiazzano',
+    icon: LinkedInLogo,
   },
 ]
 ---
@@ -34,27 +34,46 @@ const socialLinks = [
           href="https://astro.build"
           target="_blank"
           rel="noreferrer"
-          class="font-medium underline underline-offset-4">Astro</a
-        > and <a
+          class="font-medium underline underline-offset-4 inline-flex items-center gap-1"
+        >
+          Astro
+          <Image
+            src={AstroLogo}
+            alt="Astro Logo"
+            width={16}
+            height={16}
+            class="inline-block"
+          />
+        </a> and <a
           href="https://tailwindcss.com"
           target="_blank"
           rel="noreferrer"
-          class="font-medium underline underline-offset-4">Tailwind CSS</a
-        >.
+          class="font-medium underline underline-offset-4"
+        >
+          Tailwind CSS
+          <Image
+            src={TailwindCSSLogo}
+            alt="Tailwind CSS Logo"
+            width={16}
+            height={16}
+            class="inline-block"
+          />
+        </a>
       </p>
     </div>
     <div class="flex items-center justify-center space-x-4">
       {
-        socialLinks.map(({ name, url }) => (
+        socialLinks.map(({ name, url, icon }) => (
           <Button variant="ghost" size="icon">
-            <a
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              class="text-muted-foreground hover:text-foreground"
-            >
+            <a href={url} target="_blank" rel="noreferrer">
               <span class="sr-only">{name}</span>
-              <i class={`fab fa-${name.toLowerCase()}`} aria-hidden="true" />
+              <Image
+                src={icon}
+                alt={name}
+                width={16}
+                height={16}
+                class="inline-block"
+              />
             </a>
           </Button>
         ))
@@ -65,14 +84,10 @@ const socialLinks = [
         href="https://www.github.com/NoistNT"
         target="_blank"
         rel="noreferrer"
-        class="font-medium underline underline-offset-4">Ariel Piazzano</a
-      >.
+        class="font-medium underline underline-offset-4"
+      >
+        Ariel Piazzano
+      </a>.
     </p>
   </div>
 </footer>
-
-<!-- Add Font Awesome for social icons -->
-<script
-  is:inline
-  src="https://kit.fontawesome.com/YOUR_KIT_CODE.js"
-  crossorigin="anonymous"></script>
