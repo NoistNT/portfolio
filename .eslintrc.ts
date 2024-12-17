@@ -1,9 +1,14 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:astro/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
+    extraFileExtensions: ['.astro'],
   },
   rules: {
     'no-unused-vars': 'warn',
@@ -14,5 +19,13 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import/order': [
+      'warn',
+      {
+        'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+        'alphabetize': { order: 'asc', caseInsensitive: true },
+      },
+    ],
   },
-}
+};
