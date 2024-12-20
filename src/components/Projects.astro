@@ -1,52 +1,36 @@
 ---
-import Badge from '@/components/ui/Badge.astro'
-import Button from '@/components/ui/Button.astro'
-import Card from '@/components/ui/Card.astro'
-import CardHeader from '@/components/ui/CardHeader.astro'
-import CardTitle from '@/components/ui/CardTitle.astro'
-import CardDescription from '@/components/ui/CardDescription.astro'
-import CardContent from '@/components/ui/CardContent.astro'
-import CardFooter from '@/components/ui/CardFooter.astro'
-
-const projects = [
-  {
-    title: 'Project 1',
-    description:
-      'A full-stack web application built with React, Node.js, and MongoDB',
-    image: '/project1.jpg',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    link: '#',
-  },
-  {
-    title: 'Project 2',
-    description: 'Real-time chat application using WebSocket and Express',
-    image: '/project2.jpg',
-    tags: ['WebSocket', 'Express', 'React'],
-    link: '#',
-  },
-  {
-    title: 'Project 3',
-    description: 'E-commerce platform with Next.js and Stripe integration',
-    image: '/project3.jpg',
-    tags: ['Next.js', 'Stripe', 'TailwindCSS'],
-    link: '#',
-  },
-]
+import GithubLogoDark from '@/assets/github-dark.svg';
+import GitHubLogo from '@/assets/github.svg';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import CardContent from '@/components/ui/CardContent.astro';
+import CardDescription from '@/components/ui/CardDescription.astro';
+import CardFooter from '@/components/ui/CardFooter.astro';
+import CardHeader from '@/components/ui/CardHeader.astro';
+import CardTitle from '@/components/ui/CardTitle.astro';
+import projects from '@/data/projects.json';
+import { Image } from 'astro:assets';
 ---
 
-<section id="projects" class="py-20">
-  <div class="container px-4 mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
+<section
+  id="projects"
+  class="py-20"
+>
+  <div class="container px-4 mx-auto animate-fade-up lg:animate-fade-left">
+    <h2 class="text-4xl font-regular tracking-tighter text-center mb-12 text-foreground">
       Featured Projects
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        projects.map(({ description, image, link, tags, title }) => (
+        projects.map(({ title, description, image: { alt, src }, tags, link }) => (
           <Card>
-            <img
-              src={image}
-              alt={title}
-              class="w-full h-48 object-cover rounded-t-lg"
+            <Image
+              src={src}
+              alt={alt}
+              width={400}
+              height={400}
+              class="w-full h-48 rounded-t-lg object-cover"
             />
             <CardHeader>
               <CardTitle>{title}</CardTitle>
@@ -55,13 +39,42 @@ const projects = [
             <CardContent>
               <div class="flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <Badge variant="outline">{tag}</Badge>
+                  <Badge>{tag}</Badge>
                 ))}
               </div>
             </CardContent>
-            <CardFooter>
-              <Button variant="link" class="ml-auto">
-                <a href={link}>View Project →</a>
+            <CardFooter class="flex items-center justify-end">
+              <Button
+                variant="outline"
+                size="icon"
+                class="outline-none border-none bg-transparent shadow-none"
+              >
+                <a
+                  href="https://github.com/noistnt/Pokemon-Client"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    src={GitHubLogo}
+                    alt="GitHub Logo"
+                    width={18}
+                    height={18}
+                    class="dark:hidden"
+                  />
+                  <Image
+                    src={GithubLogoDark}
+                    alt="GitHub Logo"
+                    width={18}
+                    height={18}
+                    class="hidden dark:block"
+                  />
+                </a>
+              </Button>
+              <Button
+                variant="link"
+                class="tracking-tight leading-none px-2"
+              >
+                <a href={link}>View Demo →</a>
               </Button>
             </CardFooter>
           </Card>
