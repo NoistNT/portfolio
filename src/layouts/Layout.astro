@@ -1,28 +1,39 @@
 ---
-import ThemeToggle from '@/components/ThemeToggle.astro'
-import { ViewTransitions } from 'astro:transitions'
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
-  title: string
+  title: string;
 }
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Astro description"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
-  <body
-    class="min-h-screen bg-base-100 text-base-content antialiased scroll-smooth"
-  >
+  <body class="min-h-screen bg-background text-base-content antialiased scroll-smooth">
     <slot />
     <ThemeToggle />
   </body>
