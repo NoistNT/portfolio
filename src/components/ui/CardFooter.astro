@@ -1,14 +1,17 @@
 ---
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 export interface CardFooterProps extends astroHTML.JSX.HTMLAttributes {
-  class?: string
+  class?: string;
 }
 
-const { class: className, ...rest } = Astro.props
-const footerClasses = cn('flex items-center p-6 pt-0', className)
+const { class: className, ...rest } = Astro.props;
+const footerClasses = cn('flex items-center p-6 pt-0', className);
 ---
 
-<div class={footerClasses} {...rest}>
+<div
+  class={footerClasses}
+  {...rest}
+>
   <slot />
 </div>
