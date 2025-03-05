@@ -8,7 +8,7 @@ export interface CardDescriptionProps extends astroHTML.JSX.HTMLAttributes {
 const { class: className, ...rest } = Astro.props;
 const descriptionClasses = cn(
   'h-10 text-sm text-muted-foreground tracking-tight leading-relaxed',
-  className
+  className,
 );
 ---
 

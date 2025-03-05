@@ -1,14 +1,17 @@
 ---
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 export interface CardHeaderProps extends astroHTML.JSX.HTMLAttributes {
-  class?: string
+  class?: string;
 }
 
-const { class: className, ...rest } = Astro.props
-const headerClasses = cn('flex flex-col space-y-1.5 p-6', className)
+const { class: className, ...rest } = Astro.props;
+const headerClasses = cn('flex flex-col space-y-1.5 p-6', className);
 ---
 
-<div class={headerClasses} {...rest}>
+<div
+  class={headerClasses}
+  {...rest}
+>
   <slot />
 </div>
